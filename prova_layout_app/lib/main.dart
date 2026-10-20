@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'widgets/bloco_estatistica.dart';
 // TODO Desafio 7: Importar o widget customizado criado em lib/widgets/bloco_estatistica.dart
 // import 'widgets/bloco_estatistica.dart';
 
@@ -59,69 +60,88 @@ class TelaDashboard extends StatelessWidget {
             // Desafio 1: Adicionar o 3º Card (Icons.camera_alt, '45', 'Fotos') com Expanded.
             // Desafio 8: Refatorar esta seção usando GridView.count (grade 2x2).
             // ===================================================================
-            Row(
-              children: [
-		const SizedBox(width: 12.0),
-		Expanded(
- 		 child: Container(
-   		   padding: const EdgeInsets.all(16.0),
-    		   decoration: BoxDecoration(
-     	              color: Colors.teal.shade200,
-      		      borderRadius: BorderRadius.circular(12),
-   		     ),
-   		     child: Column(
-     		       children: const [
-       			 Icon(Icons.camera_alt, size: 36, color: Colors.teal),
-      		         SizedBox(height: 8),
-       			 Text(
-          		   '45',
-         		 style: TextStyle(
-           	            fontSize: 22,
-            		    fontWeight: FontWeight.bold,
-         		 ),
-       		       ),
-        	       Text(
-          		'Fotos',
-          		style: TextStyle(fontSize: 12, color: Colors.grey),
-       	              ),
-     		    ],
-                  ),
-                ),
-              ), 
+            
+ // DESAFIOS 1 E 7: Primeira linha com três cards reutilizáveis
+Row(
+  children: const [
+    Expanded(
+      child: BlocoEstatistica(
+        icone: Icons.flutter_dash,
+        valor: '124',
+        rotulo: 'Aves Vistas',
+        corFundo: Color(0xFFB2DFDB),
+      ),
+    ),
+    SizedBox(width: 12),
+    Expanded(
+      child: BlocoEstatistica(
+        icone: Icons.place,
+        valor: '18',
+        rotulo: 'Locais Visitados',
+        corFundo: Color(0xFFE0F2F1),
+      ),
+    ),
+    SizedBox(width: 12),
+    Expanded(
+      child: BlocoEstatistica(
+        icone: Icons.camera_alt,
+        valor: '45',
+        rotulo: 'Fotos',
+        corFundo: Color(0xFFB2DFDB),
+      ),
+    ),
+  ],
+),
 
+const SizedBox(height: 24),
 
+// DESAFIO 8: Grade 2x2 com GridView.count
+const Text(
+  'Estatísticas em Grade',
+  style: TextStyle(
+    fontSize: 20,
+    fontWeight: FontWeight.bold,
+  ),
+),
 
+const SizedBox(height: 16),
 
+GridView.count(
+  crossAxisCount: 2,
+  crossAxisSpacing: 12,
+  mainAxisSpacing: 12,
+  childAspectRatio: 1.1,
+  shrinkWrap: true,
+  physics: const NeverScrollableScrollPhysics(),
+  children: const [
+    BlocoEstatistica(
+      icone: Icons.flutter_dash,
+      valor: '124',
+      rotulo: 'Aves Vistas',
+      corFundo: Color(0xFFB2DFDB),
+    ),
+    BlocoEstatistica(
+      icone: Icons.place,
+      valor: '18',
+      rotulo: 'Locais Visitados',
+      corFundo: Color(0xFFE0F2F1),
+    ),
+    BlocoEstatistica(
+      icone: Icons.camera_alt,
+      valor: '45',
+      rotulo: 'Fotos',
+      corFundo: Color(0xFFB2DFDB),
+    ),
+    BlocoEstatistica(
+      icone: Icons.park,
+      valor: '8',
+      rotulo: 'Parques',
+      corFundo: Color(0xFFE0F2F1),
+    ),
+  ],
+),
 
-                const SizedBox(width: 12.0),
-                Expanded(
-                  child: Container(
-                    padding: const EdgeInsets.all(16.0),
-                    decoration: BoxDecoration(
-                      color: Colors.teal.shade50,
-                      borderRadius: BorderRadius.circular(12),
-                    ),
-                    child: Column(
-                      children: const [
-                        Icon(Icons.place, size: 36, color: Colors.teal),
-                        SizedBox(height: 8),
-                        Text('18', style: TextStyle(fontSize: 22, fontWeight: FontWeight.bold)),
-                        Text('Locais Visitados', style: TextStyle(fontSize: 12, color: Colors.grey)),
-                      ],
-                    ),
-                  ),
-                ),
-                const SizedBox(width: 12.0),
-                // TODO [Desafio 1]: Adicionar aqui o terceiro Card com Expanded (Ícone: Icons.camera_alt, '45', 'Fotos')
-              ],
-            ),
-            const SizedBox(height: 24.0),
-
-            const Text(
-              'Destaque da Semana',
-              style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
-            ),
-            const SizedBox(height: 16.0),
+const SizedBox(height: 24),
 
             // ===================================================================
             // 📍 DESAFIO 5 (2,0 pontos) & DESAFIO 6 (1,5 ponto):

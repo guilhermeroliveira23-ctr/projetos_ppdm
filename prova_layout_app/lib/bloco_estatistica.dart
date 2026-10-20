@@ -1,3 +1,4 @@
+
 import 'package:flutter/material.dart';
 
 class BlocoEstatistica extends StatelessWidget {
@@ -16,22 +17,37 @@ class BlocoEstatistica extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Expanded(
-      child: Container(
-        padding: const EdgeInsets.all(16.0),
-        decoration: BoxDecoration(
-          color: corFundo,
-          borderRadius: BorderRadius.circular(12),
-        ),
-        child: Column(
-          children: [
-            Icon(icone, size: 36, color: Colors.teal),
-            const SizedBox(height: 8),
-            Text(valor, style: const TextStyle(fontSize: 22, fontWeight: FontWeight.bold)),
-            Text(rotulo, style: const TextStyle(fontSize: 12, color: Colors.grey)),
-          ],
-        ),
+    return Container(
+      width: double.infinity,
+      padding: const EdgeInsets.all(16.0),
+      decoration: BoxDecoration(
+        color: corFundo,
+        borderRadius: BorderRadius.circular(12),
+      ),
+      child: Column(
+        mainAxisAlignment: MainAxisAlignment.center,
+        mainAxisSize: MainAxisSize.min,
+        children: [
+          Icon(icone, size: 36, color: Colors.teal),
+          const SizedBox(height: 8),
+          Text(
+            valor,
+            style: const TextStyle(
+              fontSize: 22,
+              fontWeight: FontWeight.bold,
+            ),
+          ),
+          Text(
+            rotulo,
+            textAlign: TextAlign.center,
+            style: const TextStyle(
+              fontSize: 12,
+              color: Colors.grey,
+            ),
+          ),
+        ],
       ),
     );
   }
 }
+
