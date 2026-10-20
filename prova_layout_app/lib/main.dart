@@ -229,7 +229,83 @@ class TelaDashboard extends StatelessWidget {
             // Criar a seção "Últimos Registros" com Container, Row, ícone de lista,
             // texto e botão/ícone com MainAxisAlignment.spaceBetween.
             // ===================================================================
-            // TODO [Desafio 3]: Implementar a seção "Últimos Registros" aqui
+            
+Container(
+  width: double.infinity,
+  padding: const EdgeInsets.all(16.0),
+  decoration: BoxDecoration(
+    color: Colors.teal.shade50,
+    borderRadius: BorderRadius.circular(12),
+    border: Border.all(color: Colors.teal.shade100),
+  ),
+  child: Column(
+    children: [
+      Row(
+        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+        children: [
+          const Row(
+            children: [
+              Icon(Icons.list_alt, color: Colors.teal),
+              SizedBox(width: 8),
+              Text(
+                'Últimos Registros',
+                style: TextStyle(
+                  fontSize: 18,
+                  fontWeight: FontWeight.bold,
+                ),
+              ),
+            ],
+          ),
+          IconButton(
+            onPressed: () {},
+            icon: const Icon(
+              Icons.arrow_forward,
+              color: Colors.teal,
+            ),
+          ),
+        ],
+      ),
+      const Divider(),
+
+      Row(
+        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+        children: const [
+          Text('Bem-te-vi'),
+          Text(
+            'Hoje, 09:30',
+            style: TextStyle(color: Colors.grey),
+          ),
+        ],
+      ),
+
+      const SizedBox(height: 16),
+
+      Row(
+        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+        children: const [
+          Text('Sabiá-laranjeira'),
+          Text(
+            'Ontem, 15:20',
+            style: TextStyle(color: Colors.grey),
+          ),
+        ],
+      ),
+
+      const SizedBox(height: 16),
+
+      Row(
+        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+        children: const [
+          Text('João-de-barro'),
+          Text(
+            'Ontem, 10:15',
+            style: TextStyle(color: Colors.grey),
+          ),
+        ],
+      ),
+    ],
+  ),
+),
 
             // ===================================================================
             // 📍 DESAFIO 4 (1,5 ponto):
