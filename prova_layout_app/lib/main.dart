@@ -312,6 +312,48 @@ Container(
             // Demonstrar/comprovar a ocorrência e correção de um erro de overflow
             // (RenderFlex overflow) via prints ou bloco comentado.
             // ===================================================================
+// DESAFIO 4: CORREÇÃO DO OVERFLOW
+Container(
+  width: double.infinity,
+  padding: const EdgeInsets.all(8),
+  color: Colors.green.shade100,
+  child: Row(
+    children: [
+      Expanded(
+        child: Container(
+          height: 60,
+          color: Colors.green,
+          alignment: Alignment.center,
+          child: const Text(
+            'Bloco 1',
+            style: TextStyle(color: Colors.white),
+          ),
+        ),
+      ),
+      const SizedBox(width: 8),
+      Expanded(
+        child: Container(
+          height: 60,
+          color: Colors.teal,
+          alignment: Alignment.center,
+          child: const Text(
+            'Bloco 2',
+            style: TextStyle(color: Colors.white),
+          ),
+        ),
+      ),
+    ],
+  ),
+),
+
+
+
+
+
+
+
+
+
           ],
         ),
       ),
